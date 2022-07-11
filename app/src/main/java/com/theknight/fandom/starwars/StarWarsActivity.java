@@ -1,21 +1,18 @@
 package com.theknight.fandom.starwars;
 
+import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.animation.OvershootInterpolator;
-
 import com.theknight.fandom.R;
-import com.theknight.fandom.lib.TransparentBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
+import jp.wasabeef.recyclerview.animators.FlipInBottomXAnimator;
 
 public class StarWarsActivity extends AppCompatActivity {
     private static final String TAG = "$className" ;
@@ -56,7 +53,7 @@ public class StarWarsActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Adapter set");
         RecyclerView.LayoutManager manager = new GridLayoutManager(this,2,GridLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(manager);
-        recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
+        recyclerView.setItemAnimator(new FlipInBottomXAnimator());
         recyclerView.setAdapter(adapter);
         Log.d(TAG, "onCreate: Set final adapter");
 
