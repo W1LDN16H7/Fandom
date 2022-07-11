@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="100"
+    android:background="@drawable/ripple_effect_adapter"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/avatar"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/hp_logo" />
+
+    <TextView
+        android:id="@+id/charector_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Harry Potter"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/real_name"
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:text="Harry Potter"
+        android:textAlignment="center"
+        android:textColor="@color/white_bright"
+        android:textSize="20sp" />
+</LinearLayout>

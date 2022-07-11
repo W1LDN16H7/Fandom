@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v31/recycle_bg.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/click_button_bg.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/custom_bg_button.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/imdb_button_bg.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/recycle_bg.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/ripple.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/ripple_effect.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/ripple_effect_adapter.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/shape1.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/font/font_fandom.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/font/strangerthings.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/layout/activity_drawer.xml" value="0.16875" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_star_wars.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/app_bar_drawer.xml" value="0.16875" />
+        <entry key="app/src/main/res/layout/content_drawer.xml" value="0.16875" />
+        <entry key="app/src/main/res/layout/custom_character.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/custom_charector.xml" value="0.16875" />
+        <entry key="app/src/main/res/layout/custom_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.16875" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

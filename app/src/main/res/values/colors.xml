@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="royal_blue">#246EE9</color>
+    <color name="Scarlet_Red">#FF2400</color>
+
+    <color name="mint_green">#3EB489</color>
+    <color name="bright_green_">#66FCF1</color>
+    <color name="future">#116466</color>
+    <color name="dark">#0B0C10</color>
+    <color name="rich_dark">#010b13</color>
+
+    <color name="dark_bright">#1F2823</color>
+    <color name="white_bright">#C5C6C7</color>
+    <color name="green_bright">#45A29E</color>
+    <color name="eleven">#ff1515</color>
+    <color name="yoda">#a6e18a</color>
+    <color name="yoda2">#332a0e</color>
+    <color name="hp"> #D3A625</color>
+    <color name="hp1"> #AE0001</color>
+    <color name="hp2"> #740001</color>
+    <color name="yellow"> #FFE81F</color>
+    <color name="imdb_black">#0c0b00</color>
+    <color name="imdb_yellow">#f3ce13</color>
+    <color name="ripple_material_dark">#33ffffff</color>
+    <color name="ripple_material_light">#1f000000</color>
+
+<!--    <color name="yellow"> #FFE81F</color>-->
+<!--    <color name="yellow"> #FFE81F</color>-->
+
+</resources>
