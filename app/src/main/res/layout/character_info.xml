@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="172dp"
+        android:src="@drawable/strt" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/nav_header_height">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#322c4c"
+            android:orientation="vertical"
+
+            >
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:gravity="center|right"
+                android:text="Name"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/name_value"
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_alignParentRight="true"
+                android:text="Darth Vader"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="35dp"
+                android:gravity="center|right"
+                android:text="Age"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/age_value"
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="35dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/birthday"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="70dp"
+                android:gravity="center|right"
+                android:text="Birthday"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/birthday_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="70dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="105dp"
+                android:gravity="center|right"
+                android:text="Gender"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/gender_value"
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="105dp"
+
+                android:text="Gender"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/mass"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="140dp"
+                android:gravity="center|right"
+                android:text="Mass"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/mass_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="140dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/height"
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="175dp"
+                android:gravity="center|right"
+                android:text="Height"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/height_value"
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="175dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/haircolor"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="210dp"
+                android:gravity="center|right"
+                android:text="Hair Color"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/haircolor_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="210dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/skincolor"
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="245dp"
+                android:gravity="center|right"
+                android:text="Skin Color"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/skincolor_value"
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="245dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/eyecolor"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="280dp"
+                android:gravity="center|right"
+                android:text="Eye Color"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/eyecolor_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="280dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/born"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="315dp"
+                android:gravity="center|right"
+                android:text="Born"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/born_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="315dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/bornLocation"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="350dp"
+                android:gravity="center|right"
+                android:text="Born Location"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/born_location_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="350dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/diedLocation"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="385dp"
+                android:gravity="center|right"
+                android:text="Died Location"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/died_location_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="385dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/species"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="420dp"
+                android:gravity="center|right"
+                android:text="Species"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/species_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="420dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/masters"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="455dp"
+                android:gravity="center|right"
+                android:text="Masters"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/masters_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="455dp"
+
+                android:text="42"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/apprentices"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="490dp"
+                android:gravity="center|right"
+                android:text="Apprentices"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/apprentices_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="490dp"
+
+                android:text="apprentices"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/affiliations"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="525dp"
+                android:gravity="center|right"
+                android:text="Affiliations"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/affiliations_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="525dp"
+
+                android:text="apprentices"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/cybernetics"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="560dp"
+                android:gravity="center|right"
+                android:text="Cybernetics"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/cybernetics_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="560dp"
+
+                android:text="apprentices"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/About"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="595dp"
+                android:gravity="center|right"
+                android:text="About"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <WebView
+                android:id="@+id/about_value"
+
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="630dp"
+
+                />
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

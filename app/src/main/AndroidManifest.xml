@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Fandom"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".starwars.CharacterInfo"
+            android:exported="true" />
+        <activity
             android:name=".starwars.StarWarsActivity"
             android:exported="true" />
         <activity

@@ -1,14 +1,18 @@
 package com.theknight.fandom.starwars;
 
-public class Character {
-    private String name;
-    private String real_name;
-    private int image;
+import com.google.gson.annotations.SerializedName;
 
-    public Character(String name, String real_name, int image) {
+public class Character {
+
+    @SerializedName("image")
+    public String url;
+    private String name;
+    private String age;
+
+    public Character(String name, String age, String url) {
         this.name = name;
-        this.real_name = real_name;
-        this.image = image;
+        this.age = age;
+        this.url = url;
     }
 
     public String getName() {
@@ -19,19 +23,22 @@ public class Character {
         this.name = name;
     }
 
-    public String getReal_name() {
-        return real_name;
+    public String getAge() {
+        return age;
     }
 
-    public void setReal_name(String real_name) {
-        this.real_name = real_name;
+    public void setAge(String age) {
+        this.age = age;
     }
 
-    public int getImage() {
-        return image;
+
+    public String getUrl() {
+        return url;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public void setUrl(String url) {
+        this.url = url;
     }
+
+
 }

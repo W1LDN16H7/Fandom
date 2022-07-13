@@ -64,7 +64,6 @@ public class StarWarsEngine {
 
                 textView.setText(text);
                 ImageLoader im = new ImageLoader();
-                im.loadImage(imageView.getContext(), imageView,response.body().getImage());
 
             }
 
