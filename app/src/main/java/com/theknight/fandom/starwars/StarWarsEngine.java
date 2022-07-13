@@ -52,15 +52,15 @@ public class StarWarsEngine {
 
                 }
                 assert response.body() != null;
-                text = "\n\n name : " + response.body().getName() +
-                        "\nheight : " + response.body().getHeight() +
-                        "\nmass : " + response.body().getMass() +
-                        "\nhair color : " + response.body().getHair_color() +
-                        "\nskin color : " + response.body().getSkin_color() +
-                        "\neye color : " + response.body().getEye_color() +
-                        "\nbirth_year : " + response.body().getBirth_year() +
-                        "\ngender : " + response.body().getGender() +
-                        "\nhomewolrd : " + response.body().getHomeworld();
+//                text = "\n\n name : " + response.body().getName() +
+//                        "\nheight : " + response.body().getHeight() +
+//                        "\nmass : " + response.body().getMass() +
+//                        "\nhair color : " + response.body().getHair_color() +
+//                        "\nskin color : " + response.body().getSkin_color() +
+//                        "\neye color : " + response.body().getEye_color() +
+//                        "\nbirth_year : " + response.body().getBirth_year() +
+//                        "\ngender : " + response.body().getGender() +
+//                        "\nhomewolrd : " + response.body().getHomeworld();
 
                 textView.setText(text);
                 ImageLoader im = new ImageLoader();

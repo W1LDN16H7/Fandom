@@ -20,10 +20,10 @@ import java.util.List;
 public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CharacterHolder> {
 
     private static final String TAG = "$className";
-    public List<Character> characters;
+    public List<CharacterModel> characters;
     Context context;
 
-    public CastAdapter(Context context, List<Character> characters) {
+    public CastAdapter(Context context, List<CharacterModel> characters) {
         this.characters = characters;
         this.context = context;
         Log.d(TAG, "CastAdapter: characters called ");
@@ -44,18 +44,20 @@ public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CharacterHolde
 
     @Override
     public void onBindViewHolder(@NonNull CastAdapter.CharacterHolder holder, int position) {
-        Character character = characters.get(position);
+        CharacterModel character = characters.get(position);
 
         ImageLoader loader = new ImageLoader();
 
         loader.loadImage(context, holder.imageView, character.getUrl());
-        holder.age.setText(character.getAge());
+        holder.age.setText(character.getGender());
         holder.name.setText(character.getName());
 
         Log.d(TAG, "onBindViewHolder: " + character.getUrl());
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 Intent intent = new Intent(context, CharacterInfo.class);
                 v.getContext().startActivity(intent);
                 Log.d(TAG, "onClick: launching activity ");

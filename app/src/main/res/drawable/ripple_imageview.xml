@@ -3,8 +3,10 @@
     android:color="#938cb1">
     <item>
         <shape android:shape="rectangle">
+            <size android:width="20dp" />
+            <size android:height="20dp" />
             <solid android:color="@color/imdb_black" />
-            <corners android:radius="200dp" />
+            <corners android:radius="10dp" />
         </shape>
     </item>
 </ripple>

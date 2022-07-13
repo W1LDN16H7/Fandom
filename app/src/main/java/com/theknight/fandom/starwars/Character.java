@@ -7,6 +7,7 @@ public class Character {
     @SerializedName("image")
     public String url;
     private String name;
+    @SerializedName("gender")
     private String age;
 
     public Character(String name, String age, String url) {
