@@ -11,10 +11,11 @@
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_width="140dp"
+        android:layout_height="180dp"
         android:background="@drawable/ripple_imageview"
         android:clickable="true"
+        android:scaleType="fitXY"
         android:focusable="true"
         android:src="@drawable/hp_logo" />
 
@@ -28,7 +29,7 @@
         android:textSize="22sp" />
 
     <TextView
-        android:id="@+id/age"
+        android:id="@+id/former"
         android:layout_width="238dp"
         android:layout_height="wrap_content"
         android:text="25"

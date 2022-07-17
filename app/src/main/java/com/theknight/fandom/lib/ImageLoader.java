@@ -13,12 +13,34 @@ public class ImageLoader {
 
     private static final String TAG = "Imageloader";
 
+    public void loadImage(Context context, ImageView imageView, String url, int height, int width) {
+        try {
+            Glide.with(context)
+
+                    .load(url)
+                    .apply(new RequestOptions().override(width, height).error(R.drawable.not_found))
+
+
+                    .thumbnail(0.09f)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(imageView)
+            ;
+            Log.d(TAG, "loadImage: Image loaded");
+
+        } catch (Exception e) {
+            Log.d(TAG, "loadImage: " + e.getMessage());
+
+        }
+
+
+    }
+
     public void loadImage(Context context, ImageView imageView, String url) {
         try {
             Glide.with(context)
 
                     .load(url)
-                    .apply(new RequestOptions().override(200, 200).error(R.drawable.not_found))
+                    .apply(new RequestOptions().error(R.drawable.not_found))
 
 
                     .thumbnail(0.09f)

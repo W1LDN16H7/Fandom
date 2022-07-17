@@ -48,7 +48,7 @@ public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CharacterHolde
 
         ImageLoader loader = new ImageLoader();
 
-        loader.loadImage(context, holder.imageView, character.getUrl());
+        loader.loadImage(context, holder.imageView, character.getUrl(), 190, 150);
         holder.age.setText(character.getGender());
         holder.name.setText(character.getName());
 
@@ -59,6 +59,25 @@ public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CharacterHolde
 
 
                 Intent intent = new Intent(context, CharacterInfo.class);
+                intent.putExtra("name", character.getName());
+                intent.putExtra("height", character.getHeight());
+                intent.putExtra("mass", character.getMass());
+                intent.putExtra("hair_color", character.getHair_color());
+                intent.putExtra("skin_color", character.getSkin_color());
+                intent.putExtra("eye_color", character.getEye_color());
+                intent.putExtra("gender", character.getGender());
+                intent.putExtra("url", character.getUrl());
+                intent.putExtra("born", character.getBorn());
+                intent.putExtra("died", character.getDied());
+                intent.putExtra("wiki_url", character.getWiki_url());
+                intent.putExtra("born_location", character.getBorn_location());
+                intent.putExtra("died_location", character.getDied_location());
+                intent.putExtra("species", character.getSpecies());
+                intent.putExtra("apprentices", character.getApprentices());
+                intent.putExtra("affiliations", character.getAffiliations());
+                intent.putExtra("masters", character.getMaster());
+                intent.putExtra(" formerAffiliations", character.getFormerAffiliations());
+
                 v.getContext().startActivity(intent);
                 Log.d(TAG, "onClick: launching activity ");
 
@@ -88,7 +107,7 @@ public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CharacterHolde
             super(itemView);
             imageView = itemView.findViewById(R.id.avatar);
             name = itemView.findViewById(R.id.charector_name);
-            age = itemView.findViewById(R.id.age);
+            age = itemView.findViewById(R.id.former);
         }
     }
 }

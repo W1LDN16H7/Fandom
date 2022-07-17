@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/image_character"
         android:layout_width="match_parent"
         android:layout_height="172dp"
         android:src="@drawable/strt" />
@@ -36,29 +36,30 @@
 
             <TextView
                 android:id="@+id/name_value"
-                android:layout_width="169dp"
+                android:layout_width="wrap_content"
                 android:layout_height="39dp"
                 android:layout_alignParentRight="true"
+                android:layout_marginRight="50dp"
                 android:text="Darth Vader"
                 android:textColor="@color/white_bright"
                 android:textSize="22sp"
                 android:textStyle="normal" />
 
             <TextView
-                android:id="@+id/age"
+                android:id="@+id/masters"
                 android:layout_width="169dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="35dp"
                 android:gravity="center|right"
-                android:text="Age"
+                android:text="Masters"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
 
             <TextView
-                android:id="@+id/age_value"
-                android:layout_width="169dp"
+                android:id="@+id/master_value"
+                android:layout_width="wrap_content"
                 android:layout_height="39dp"
 
                 android:layout_alignParentEnd="true"
@@ -86,7 +87,7 @@
             <TextView
                 android:id="@+id/birthday_value"
 
-                android:layout_width="169dp"
+                android:layout_width="wrap_content"
                 android:layout_height="39dp"
 
                 android:layout_alignParentEnd="true"
@@ -112,7 +113,7 @@
 
             <TextView
                 android:id="@+id/gender_value"
-                android:layout_width="169dp"
+                android:layout_width="wrap_content"
                 android:layout_height="39dp"
 
                 android:layout_alignParentEnd="true"
@@ -373,20 +374,20 @@
 
 
             <TextView
-                android:id="@+id/masters"
+                android:id="@+id/former"
 
                 android:layout_width="169dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="455dp"
                 android:gravity="center|right"
-                android:text="Masters"
+                android:text="FormerAffiliations"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
 
             <TextView
-                android:id="@+id/masters_value"
+                android:id="@+id/formerAffiliations_value"
 
                 android:layout_width="169dp"
                 android:layout_height="39dp"
@@ -485,11 +486,39 @@
 
 
             <TextView
-                android:id="@+id/About"
+                android:id="@+id/homes"
 
                 android:layout_width="169dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="595dp"
+                android:gravity="center|right"
+                android:text="Homeworld"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/homewolrd_value"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="595dp"
+
+                android:text="apprentices"
+                android:textColor="@color/white_bright"
+                android:textSize="22sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/About"
+
+                android:layout_width="169dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="630dp"
                 android:gravity="center|right"
                 android:text="About"
                 android:textColor="@color/white"

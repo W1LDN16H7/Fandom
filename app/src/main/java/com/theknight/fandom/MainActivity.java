@@ -1,19 +1,12 @@
 package com.theknight.fandom;
 
-import android.content.Context;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.OvershootInterpolator;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,38 +14,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.theknight.fandom.adapter.ItemAdapter;
-import com.theknight.fandom.adapter.MovieData;
-import com.theknight.fandom.starwars.CharacterModel;
-import com.theknight.fandom.starwars.StarCall;
-import com.theknight.fandom.starwars.StarWarsEngine;
+import com.theknight.fandom.adapter.MovieCall;
+import com.theknight.fandom.adapter.MovieModel;
+import com.theknight.fandom.lib.RetrofitClient;
+import com.theknight.fandom.lib.Util;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
+import jp.wasabeef.recyclerview.animators.FlipInBottomXAnimator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textView;
-    Button button;
-    String text;
+
+    private static final String TAG = "MainActivity";
     RecyclerView recyclerView;
-    EditText editText;
-    ImageView imageView;
-    List<MovieData> movies = new ArrayList<>();
-    static String[] titles = {"StarWars", "Harry Potter"};
-    static int[] images = {R.drawable.starwars_logo, R.drawable.hp_logo};
-
-    static String starDesc = "Star Wars is an American epic space-opera multimedia franchise created by George Lucas, which began with the eponymous 1977 film and quickly became a worldwide pop-culture phenomenon.";
-    static String harryDesc = "Harry Potter is a series of seven fantasy novels written by British author J. K. Rowling. The novels chronicle the lives of a young wizard, Harry Potter.";
-
-
-
 
 
     @Override
@@ -69,70 +46,77 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rec);
 
 
+        MovieCall movieCall = RetrofitClient.getRetrofitInstance(" https://raw.githubusercontent.com/").create(MovieCall.class);
+        Log.d(TAG, "onCreate: retrofit instance done");
+        Log.d(TAG, "onCreate: castcall" + movieCall.toString());
+        Call<List<MovieModel>> call = movieCall.getMovie();
+        Log.d(TAG, "onCreate: call " + call.toString());
+        Log.d(TAG, "onCreate: " + call.request());
+
+        call.enqueue(new Callback<List<MovieModel>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<MovieModel>> call, @NonNull Response<List<MovieModel>> response) {
+                System.out.println("Code :" + response.code());
+                if (response.code() != 200) {
+                    System.out.println("Code : " + response.code());
 
 
+                }
+                List<MovieModel> items = response.body();
+                if (items != null) {
+                    Log.d(TAG, "onResponse: Items are filled");
 
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        movies.add(new MovieData("StarWars",starDesc,images[0]));
-        movies.add(new MovieData("Harry Potter",harryDesc,images[1]));
-        movies.add(new MovieData("StarWars",starDesc,images[0]));
-        movies.add(new MovieData("Harry Potter",harryDesc,images[1]));
-        movies.add(new MovieData("StarWars",starDesc,images[0]));
-        movies.add(new MovieData("Harry Potter",harryDesc,images[1]));
-        movies.add(new MovieData("StarWars",starDesc,images[0]));
-        movies.add(new MovieData("Harry Potter",harryDesc,images[1]));
-        movies.add(new MovieData("StarWars",starDesc,images[0]));
-        movies.add(new MovieData("Harry Potter",harryDesc,images[1]));
-        movies.add(new MovieData("StarWars",starDesc,images[0]));
-        movies.add(new MovieData("Harry Potter",harryDesc,images[1]));
+//                    ;
+//                    List<Character> characters = new ArrayList<>();
+//                    characters.add(new Character(items.getName(),items.getAge(),items.getUrl()));
 
-        ItemAdapter itemAdapter = new ItemAdapter(movies);
-        recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
-
-        recyclerView.setAdapter(itemAdapter);
-        Objects.requireNonNull(recyclerView.getLayoutManager()).setMeasurementCacheEnabled(false);
+                    setAdapter(items);
+                    Log.d(TAG, "onResponse: character added by url");
 
 
+                }
 
+            }
 
+            @Override
+            public void onFailure(@NonNull Call<List<MovieModel>> call, @NonNull Throwable t) {
+                Log.d(TAG, "onFailure: Character added failed " + call.toString());
+                System.out.println(t.getLocalizedMessage());
 
-//        Intent i =new Intent(getApplicationContext(), Slider.class);
-//        startActivity(i);
-//        StarWarsEngine en = new StarWarsEngine("https://swapi.dev/","2");
-//        response = en.request();
-//        System.out.println("First : " + response.get(0));
+            }
 
-
-
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                new StarWarsEngine().getStarWarsData("https://akabab.github.io/",editText,textView,imageView);
-//
-//
-//            }
-//        });
+        });
 
 
     }
 
+    public void setAdapter(List<MovieModel> data) {
+        ItemAdapter adapter = new ItemAdapter(this, data);
 
 
-//    public void prepareMovieData(){
-//        int count = 0;
-//        for(String title : titles){
-//            for(String desc : descs){
-//                MovieData movieData = new MovieData(title,desc,images[count]);
-//                movies.add(movieData);
-//                count++;
-//
-//
-//
-//            }
-//        }
-//    }
+        Log.d(TAG, "onCreate: Adapter set");
+        RecyclerView.LayoutManager manager = null;
+
+        if (Util.getRotation(this).equals("landscape")) {
+            manager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+
+        }
+        if (Util.getRotation(this).equals("portrait")) {
+            manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
+
+        }
+
+
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setItemAnimator(new FlipInBottomXAnimator());
+        recyclerView.setAdapter(adapter);
+        Log.d(TAG, "onCreate: Set final adapter");
+
+
+    }
+
 
     private void transparentStatusAndNavigation() {
         //make full transparent statusBar
