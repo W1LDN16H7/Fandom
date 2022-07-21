@@ -1,8 +1,11 @@
 package com.theknight.fandom.lib;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.Surface;
 import android.view.WindowManager;
+
+import java.util.List;
 
 public class Util {
     public static String getRotation(Context context) {
@@ -26,4 +29,13 @@ public class Util {
 
 
     }
+
+    public static String lstToString(List<String> strings) {
+        /**
+         * Convert
+         */
+        return TextUtils.join(", ", strings);
+
+    }
+
 }

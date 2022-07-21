@@ -1,4 +1,4 @@
-package com.theknight.fandom.starwars;
+package com.theknight.fandom.lib;
 
 import com.google.gson.annotations.SerializedName;
 

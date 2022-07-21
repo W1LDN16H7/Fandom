@@ -6,18 +6,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.theknight.fandom.R;
+import com.theknight.fandom.lib.CharacterHolder;
 import com.theknight.fandom.lib.ImageLoader;
+import com.theknight.fandom.lib.Util;
 
 import java.util.List;
 
-public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CharacterHolder> {
+public class CastAdapter extends RecyclerView.Adapter<CharacterHolder> {
 
     private static final String TAG = "$className";
     public List<CharacterModel> characters;
@@ -33,7 +33,7 @@ public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CharacterHolde
 
     @NonNull
     @Override
-    public CastAdapter.CharacterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CharacterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.d(TAG, "onCreateViewHolder: Before inflate");
         View view = LayoutInflater.from(context).inflate(R.layout.custom_cast, parent, false);
         Log.d(TAG, "onCreateViewHolder: After inflate");
@@ -43,7 +43,7 @@ public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CharacterHolde
 
 
     @Override
-    public void onBindViewHolder(@NonNull CastAdapter.CharacterHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CharacterHolder holder, int position) {
         CharacterModel character = characters.get(position);
 
         ImageLoader loader = new ImageLoader();
@@ -73,10 +73,10 @@ public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CharacterHolde
                 intent.putExtra("born_location", character.getBorn_location());
                 intent.putExtra("died_location", character.getDied_location());
                 intent.putExtra("species", character.getSpecies());
-                intent.putExtra("apprentices", character.getApprentices());
-                intent.putExtra("affiliations", character.getAffiliations());
-                intent.putExtra("masters", character.getMaster());
-                intent.putExtra(" formerAffiliations", character.getFormerAffiliations());
+                intent.putExtra("apprentices", Util.lstToString(character.getApprentices()));
+                intent.putExtra("affiliations", Util.lstToString(character.getAffiliations()));
+                intent.putExtra("masters", Util.lstToString(character.getMaster()));
+                intent.putExtra(" formerAffiliations", Util.lstToString(character.getFormerAffiliations()));
 
                 v.getContext().startActivity(intent);
                 Log.d(TAG, "onClick: launching activity ");
@@ -97,17 +97,17 @@ public class CastAdapter extends RecyclerView.Adapter<CastAdapter.CharacterHolde
         return characters.size();
     }
 
-    public static class CharacterHolder extends RecyclerView.ViewHolder{
-        ImageView imageView;
-        TextView name;
-        TextView age;
-
-
-        public CharacterHolder(@NonNull View itemView) {
-            super(itemView);
-            imageView = itemView.findViewById(R.id.avatar);
-            name = itemView.findViewById(R.id.charector_name);
-            age = itemView.findViewById(R.id.former);
-        }
-    }
+//    public static class CharacterHolder extends RecyclerView.ViewHolder{
+//        ImageView imageView;
+//        TextView name;
+//        TextView age;
+//
+//
+//        public CharacterHolder(@NonNull View itemView) {
+//            super(itemView);
+//            imageView = itemView.findViewById(R.id.avatar);
+//            name = itemView.findViewById(R.id.charector_name);
+//            age = itemView.findViewById(R.id.char_gender);
+//        }
+//    }
 }

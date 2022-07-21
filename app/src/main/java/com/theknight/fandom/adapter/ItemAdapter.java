@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.button.MaterialButton;
 import com.theknight.fandom.R;
 import com.theknight.fandom.lib.ImageLoader;
+import com.theknight.fandom.potter.Potter;
 import com.theknight.fandom.starwars.StarWarsActivity;
 
 import java.util.List;
@@ -52,6 +53,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHandle
         holder.desc.setText(movieModel.getStoryline());
         ImageLoader loader = new ImageLoader();
         loader.loadImage(context, holder.imageView, movieModel.getImages().get(0));
+        holder.genre.setText(movieModel.getGenres().replace(",", "|"));
+        holder.years.setText(movieModel.getYears_active());
         holder.mview.setOnClickListener(new View.OnClickListener() {
             private final String TAG = ItemAdapter.class.getName();
 
@@ -60,11 +63,24 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHandle
                 Log.d("RecyclerView", "onClick：" + holder.getAdapterPosition());
                 Toast.makeText(v.getContext(), "Item clicked " + holder.getAdapterPosition(), Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(v.getContext(), StarWarsActivity.class);
-                intent.putExtra("url1", movieModel.getImages().get(0));
-                intent.putExtra("url2", movieModel.getImages().get(1));
+                switch (holder.getAdapterPosition()) {
+                    case 0:
+                        Intent intent = new Intent(v.getContext(), StarWarsActivity.class);
+                        intent.putExtra("url1", movieModel.getImages().get(0));
+                        intent.putExtra("url2", movieModel.getImages().get(1));
 
-                v.getContext().startActivity(intent);
+                        v.getContext().startActivity(intent);
+                        break;
+                    case 1:
+                        Intent intent1 = new Intent(context, Potter.class);
+                        context.startActivity(intent1);
+                        break;
+
+                    default:
+                        break;
+
+                }
+
 
                 Log.d(TAG, "onClick: launching activity ");
 
@@ -88,7 +104,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHandle
 
 
         ImageView imageView, imageView2;
-        TextView title;
+        TextView title, genre, years;
         com.theknight.fandom.lib.ScrollTextView desc;
         MaterialButton info;
         CardView cardView;
@@ -101,6 +117,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHandle
 
             imageView = itemView.findViewById(R.id.view_image);
             title = itemView.findViewById(R.id.item_title);
+            genre = itemView.findViewById(R.id.genres);
+            years = itemView.findViewById(R.id.years);
             desc = itemView.findViewById(R.id.desc);
             info = itemView.findViewById(R.id.info);
             cardView = itemView.findViewById(R.id.card);

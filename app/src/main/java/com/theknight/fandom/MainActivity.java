@@ -1,9 +1,9 @@
 package com.theknight.fandom;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -13,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.thecode.aestheticdialogs.AestheticDialog;
+import com.thecode.aestheticdialogs.DialogStyle;
+import com.thecode.aestheticdialogs.DialogType;
+import com.thecode.aestheticdialogs.OnDialogClickListener;
 import com.theknight.fandom.adapter.ItemAdapter;
 import com.theknight.fandom.adapter.MovieCall;
 import com.theknight.fandom.adapter.MovieModel;
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     RecyclerView recyclerView;
+    Context context;
 
 
     @Override
@@ -45,18 +50,19 @@ public class MainActivity extends AppCompatActivity {
 //        imageView = findViewById(R.id.userimage);
         recyclerView = findViewById(R.id.rec);
 
+        RetrofitClient rt = new RetrofitClient();
 
-        MovieCall movieCall = RetrofitClient.getRetrofitInstance(" https://raw.githubusercontent.com/").create(MovieCall.class);
-        Log.d(TAG, "onCreate: retrofit instance done");
-        Log.d(TAG, "onCreate: castcall" + movieCall.toString());
+        MovieCall movieCall = rt.getRetrofitInstance(" https://raw.githubusercontent.com/").create(MovieCall.class);
+//        Log.d(TAG, "onCreate: retrofit instance done");
+//        Log.d(TAG, "onCreate: castcall" + movieCall.toString());
         Call<List<MovieModel>> call = movieCall.getMovie();
-        Log.d(TAG, "onCreate: call " + call.toString());
-        Log.d(TAG, "onCreate: " + call.request());
+//        Log.d(TAG, "onCreate: call " + call.toString());
+//        Log.d(TAG, "onCreate: " + call.request());
 
         call.enqueue(new Callback<List<MovieModel>>() {
             @Override
             public void onResponse(@NonNull Call<List<MovieModel>> call, @NonNull Response<List<MovieModel>> response) {
-                System.out.println("Code :" + response.code());
+//                System.out.println("Code :" + response.code());
                 if (response.code() != 200) {
                     System.out.println("Code : " + response.code());
 
@@ -64,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 List<MovieModel> items = response.body();
                 if (items != null) {
-                    Log.d(TAG, "onResponse: Items are filled");
+//                    Log.d(TAG, "onResponse: Items are filled");
 
 
 //                    ;
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 //                    characters.add(new Character(items.getName(),items.getAge(),items.getUrl()));
 
                     setAdapter(items);
-                    Log.d(TAG, "onResponse: character added by url");
+//                    Log.d(TAG, "onResponse: character added by url");
 
 
                 }
@@ -81,7 +87,20 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<List<MovieModel>> call, @NonNull Throwable t) {
-                Log.d(TAG, "onFailure: Character added failed " + call.toString());
+
+//                Log.d(TAG, "onFailure: Character added failed " + call.toString());
+                new AestheticDialog.Builder(getParent(), DialogStyle.CONNECTIFY, DialogType.ERROR)
+                        .setTitle("Network unavailable")
+                        .setMessage("No internet connection")
+                        .setDuration(2000)
+                        .setOnClickListener(new OnDialogClickListener() {
+                            @Override
+                            public void onClick(@NonNull AestheticDialog.Builder builder) {
+                                builder.dismiss();
+
+                            }
+                        }).show();
+
                 System.out.println(t.getLocalizedMessage());
 
             }
@@ -95,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         ItemAdapter adapter = new ItemAdapter(this, data);
 
 
-        Log.d(TAG, "onCreate: Adapter set");
+//        Log.d(TAG, "onCreate: Adapter set");
         RecyclerView.LayoutManager manager = null;
 
         if (Util.getRotation(this).equals("landscape")) {
@@ -112,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(manager);
         recyclerView.setItemAnimator(new FlipInBottomXAnimator());
         recyclerView.setAdapter(adapter);
-        Log.d(TAG, "onCreate: Set final adapter");
+//        Log.d(TAG, "onCreate: Set final adapter");
 
 
     }

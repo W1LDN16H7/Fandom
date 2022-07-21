@@ -1,9 +1,12 @@
-package com.theknight.fandom.starwars;
+package com.theknight.fandom.lib;
 
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.theknight.fandom.starwars.CharacterModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,47 +14,16 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AirModel {
-    private String userId;
-    private String id;
-    private String title;
+public class StarWarsEngine {
 
-    public String getUserId() {
-        return userId;
-    }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
-    private boolean completed;
     String text;
 
-    public void getStarWarsData(String url, EditText editText, TextView textView){
+
+
+
+    public void getStarWarsData(String url, EditText editText, TextView textView, ImageView imageView) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -91,6 +63,7 @@ public class AirModel {
 //                        "\nhomewolrd : " + response.body().getHomeworld();
 
                 textView.setText(text);
+                ImageLoader im = new ImageLoader();
 
             }
 
@@ -100,12 +73,15 @@ public class AirModel {
 
 
             }
+
         });
 
     }
 
 
 
-
+//                                response.body().getTitle() +
+//                                response.body().isCompleted();
+//                        System.out.println(text);
 
 }

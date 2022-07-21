@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/image_character"
         android:layout_width="match_parent"
-        android:layout_height="172dp"
-        android:src="@drawable/strt" />
+        android:layout_height="400dp"
+        android:background="@color/imdb_black"
+        android:scaleType="centerCrop"
+
+
+        android:src="@drawable/strt"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/nav_header_height">
+        android:layout_marginTop="400dp">
 
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+
             android:background="#322c4c"
             android:orientation="vertical"
 
@@ -60,11 +67,14 @@
             <TextView
                 android:id="@+id/master_value"
                 android:layout_width="wrap_content"
-                android:layout_height="39dp"
+                android:layout_height="wrap_content"
 
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="35dp"
 
+                android:ellipsize="none"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
                 android:text="42"
                 android:textColor="@color/white_bright"
                 android:textSize="22sp"
@@ -88,7 +98,7 @@
                 android:id="@+id/birthday_value"
 
                 android:layout_width="wrap_content"
-                android:layout_height="39dp"
+                android:layout_height="wrap_content"
 
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="70dp"
@@ -389,11 +399,14 @@
             <TextView
                 android:id="@+id/formerAffiliations_value"
 
-                android:layout_width="169dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="455dp"
+                android:ellipsize="none"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
 
                 android:text="42"
                 android:textColor="@color/white_bright"
@@ -417,11 +430,14 @@
             <TextView
                 android:id="@+id/apprentices_value"
 
-                android:layout_width="169dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="490dp"
+                android:ellipsize="none"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
 
                 android:text="apprentices"
                 android:textColor="@color/white_bright"
@@ -445,11 +461,14 @@
             <TextView
                 android:id="@+id/affiliations_value"
 
-                android:layout_width="169dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="525dp"
+                android:ellipsize="none"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
 
                 android:text="apprentices"
                 android:textColor="@color/white_bright"
@@ -473,11 +492,14 @@
             <TextView
                 android:id="@+id/cybernetics_value"
 
-                android:layout_width="169dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="560dp"
+                android:ellipsize="none"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
 
                 android:text="apprentices"
                 android:textColor="@color/white_bright"
@@ -501,8 +523,8 @@
             <TextView
                 android:id="@+id/homewolrd_value"
 
-                android:layout_width="169dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="595dp"

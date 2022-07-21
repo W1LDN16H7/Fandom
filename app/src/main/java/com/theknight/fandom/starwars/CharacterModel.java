@@ -2,6 +2,8 @@ package com.theknight.fandom.starwars;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class CharacterModel {
 
     private String name;
@@ -30,18 +32,43 @@ public class CharacterModel {
     @SerializedName("diedLocation")
     private String died_location;
     private String species;
-    private String[] apprentices;
-    private String[] affiliations;
-    private String[] master;
-    private String[] formerAffiliations;
+    private List<String> apprentices;
+    private List<String> affiliations;
+    private List<String> master;
+    private List<String> formerAffiliations;
 
-    public String[] getMaster() {
+    public List<String> getApprentices() {
+        return apprentices;
+    }
+
+    public void setApprentices(List<String> apprentices) {
+        this.apprentices = apprentices;
+    }
+
+    public List<String> getAffiliations() {
+        return affiliations;
+    }
+
+    public void setAffiliations(List<String> affiliations) {
+        this.affiliations = affiliations;
+    }
+
+    public List<String> getMaster() {
         return master;
     }
 
-    public void setMaster(String[] master) {
+    public void setMaster(List<String> master) {
         this.master = master;
     }
+
+    public List<String> getFormerAffiliations() {
+        return formerAffiliations;
+    }
+
+    public void setFormerAffiliations(List<String> formerAffiliations) {
+        this.formerAffiliations = formerAffiliations;
+    }
+
 
     public String getName() {
         return name;
@@ -163,29 +190,6 @@ public class CharacterModel {
         this.species = species;
     }
 
-    public String[] getApprentices() {
-        return apprentices;
-    }
 
-    public void setApprentices(String[] apprentices) {
-        this.apprentices = apprentices;
-    }
-
-    public String[] getAffiliations() {
-        return affiliations;
-    }
-
-    public void setAffiliations(String[] affiliations) {
-        this.affiliations = affiliations;
-    }
-
-
-    public String[] getFormerAffiliations() {
-        return formerAffiliations;
-    }
-
-    public void setFormerAffiliations(String[] formerAffiliations) {
-        this.formerAffiliations = formerAffiliations;
-    }
 }
 

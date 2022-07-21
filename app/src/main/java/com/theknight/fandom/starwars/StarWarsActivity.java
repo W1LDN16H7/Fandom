@@ -1,5 +1,6 @@
 package com.theknight.fandom.starwars;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -9,8 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.thecode.aestheticdialogs.AestheticDialog;
+import com.thecode.aestheticdialogs.DialogStyle;
+import com.thecode.aestheticdialogs.DialogType;
+import com.thecode.aestheticdialogs.OnDialogClickListener;
 import com.theknight.fandom.R;
 import com.theknight.fandom.lib.ImageLoader;
+import com.theknight.fandom.lib.NoConnectivityException;
 import com.theknight.fandom.lib.RetrofitClient;
 import com.theknight.fandom.lib.Util;
 
@@ -24,6 +30,7 @@ import retrofit2.Response;
 public class StarWarsActivity extends AppCompatActivity {
     private static final String TAG = "StarWarsActivity";
     RecyclerView recyclerView;
+    Context context;
     ImageView imageView, imageView2;
 
 
@@ -44,8 +51,8 @@ public class StarWarsActivity extends AppCompatActivity {
 
 
         Log.d(TAG, "onCreate: Added characters");
-
-        CharacterCall castcall = RetrofitClient.getRetrofitInstance(" https://raw.githubusercontent.com/").create(CharacterCall.class);
+        RetrofitClient rt = new RetrofitClient();
+        CharacterCall castcall = rt.getRetrofitInstance(" https://raw.githubusercontent.com/").create(CharacterCall.class);
         Log.d(TAG, "onCreate: retrofit instance done");
         Log.d(TAG, "onCreate: castcall" + castcall.toString());
         Call<List<CharacterModel>> call = castcall.getData();
@@ -77,6 +84,21 @@ public class StarWarsActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<List<CharacterModel>> call, @NonNull Throwable t) {
                 Log.d(TAG, "onFailure: Character added failed " + call.toString());
+                if (t instanceof NoConnectivityException) {
+                    new AestheticDialog.Builder(getParent(), DialogStyle.CONNECTIFY, DialogType.ERROR)
+                            .setTitle("Network unavailable")
+                            .setMessage("No internet connection")
+                            .setDuration(2000)
+                            .setOnClickListener(new OnDialogClickListener() {
+                                @Override
+                                public void onClick(@NonNull AestheticDialog.Builder builder) {
+                                    builder.dismiss();
+
+                                }
+                            }).show();
+
+
+                }
                 System.out.println(t.getLocalizedMessage());
 
             }

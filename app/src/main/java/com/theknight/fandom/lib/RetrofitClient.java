@@ -6,7 +6,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-    public static Retrofit retrofit;
+    public Retrofit retrofit;
 
     /**
      * Custom Retrofit Client method that return the retrofit and accept the @baseURL
@@ -15,7 +15,7 @@ public class RetrofitClient {
      * @return Retrofit instance
      */
 
-    public static synchronized Retrofit getRetrofitInstance(String baseUrl) {
+    public synchronized Retrofit getRetrofitInstance(String baseUrl) {
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()

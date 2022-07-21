@@ -8,8 +8,8 @@
     <LinearLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:background="@drawable/ripple_effect_adapter"
         android:layout_height="wrap_content"
+        android:background="@drawable/ripple_effect_adapter"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +41,7 @@
 
         </androidx.cardview.widget.CardView>
 
+
         <TextView
             android:id="@+id/item_title"
             android:layout_width="wrap_content"
@@ -56,6 +57,35 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/genres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="12dp"
+            android:text="Genres"
+            android:textColor="@color/cardview_light_background"
+            android:textColorHint="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/years"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="12dp"
+            android:gravity="center"
+            android:text="Years"
+            android:textColor="@color/cardview_light_background"
+            android:textColorHint="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold" />
 
         <com.theknight.fandom.lib.ScrollTextView
             android:id="@+id/desc"
