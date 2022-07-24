@@ -6,8 +6,10 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v31/recycle_bg.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/cardview_border.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/click_button_bg.xml" value="0.18489583333333334" />
         <entry key="app/src/main/res/drawable/custom_bg_button.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/divider.xml" value="0.144" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/imdb_button_bg.xml" value="0.18489583333333334" />
         <entry key="app/src/main/res/drawable/recycle_bg.xml" value="0.18489583333333334" />
@@ -17,11 +19,13 @@
         <entry key="app/src/main/res/drawable/ripple_imageview.xml" value="0.18489583333333334" />
         <entry key="app/src/main/res/drawable/shape1.xml" value="0.18489583333333334" />
         <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.18489583333333334" />
+        <entry key="app/src/main/res/drawable/text_border.xml" value="0.144" />
         <entry key="app/src/main/res/font/font_fandom.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/font/strangerthings.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/layout/activity_character_info.xml" value="0.10657894736842105" />
         <entry key="app/src/main/res/layout/activity_drawer.xml" value="0.16875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_marvel.xml" value="0.14210526315789473" />
         <entry key="app/src/main/res/layout/activity_potter.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/layout/activity_star_wars.xml" value="0.2" />
         <entry key="app/src/main/res/layout/app_bar_drawer.xml" value="0.16875" />
@@ -29,7 +33,7 @@
         <entry key="app/src/main/res/layout/character_info_2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/charactor_1.xml" value="0.22" />
         <entry key="app/src/main/res/layout/content_drawer.xml" value="0.16875" />
-        <entry key="app/src/main/res/layout/custom_cast.xml" value="0.14210526315789473" />
+        <entry key="app/src/main/res/layout/custom_cast.xml" value="0.22" />
         <entry key="app/src/main/res/layout/custom_character.xml" value="0.25" />
         <entry key="app/src/main/res/layout/custom_charector.xml" value="0.16875" />
         <entry key="app/src/main/res/layout/custom_item.xml" value="0.22" />

@@ -22,16 +22,24 @@
     <color name="eleven">#ff1515</color>
     <color name="yoda">#a6e18a</color>
     <color name="yoda2">#332a0e</color>
-    <color name="hp"> #D3A625</color>
-    <color name="hp1"> #AE0001</color>
-    <color name="hp2"> #740001</color>
-    <color name="yellow"> #FFE81F</color>
+    <color name="hp">#D3A625</color>
+    <color name="hp1">#AE0001</color>
+    <color name="hp2">#740001</color>
+    <color name="yellow">#FFE81F</color>
     <color name="imdb_black">#0c0b00</color>
     <color name="imdb_yellow">#f3ce13</color>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
+    <color name="dev_black">#22223b</color>
+    <color name="dev_black2">#0d1b2a</color>
+    <color name="dev_white">#F0EDFF</color>
+    <color name="dev_blue">#4a4e69</color>
+    <color name="dev_pink">#9a8c98</color>
+    <color name="dev_pink_second">#c9ada7</color>
+    <color name="border">#555b6e</color>
 
-<!--    <color name="yellow"> #FFE81F</color>-->
-<!--    <color name="yellow"> #FFE81F</color>-->
+
+    <!--    <color name="yellow"> #FFE81F</color>-->
+    <!--    <color name="yellow"> #FFE81F</color>-->
 
 </resources>

@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import android.view.Surface;
 import android.view.WindowManager;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 public class Util {
@@ -28,6 +30,18 @@ public class Util {
         }
 
 
+    }
+
+    public static int getOrientation(Context context) {
+        final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getOrientation();
+        switch ((int) rotation) {
+            case Surface
+                    .ROTATION_0:
+                return RecyclerView.VERTICAL;
+            case Surface.ROTATION_90:
+                return RecyclerView.HORIZONTAL;
+        }
+        return RecyclerView.VERTICAL;
     }
 
     public static String lstToString(List<String> strings) {

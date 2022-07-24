@@ -2,6 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@drawable/ripple_effect_adapter"
+    android:paddingTop="@dimen/activity_vertical_margin"
+
     android:layout_height="wrap_content">
 
 
@@ -20,14 +23,15 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_margin="10dp"
+            android:layout_height="240dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/ripple_effect_adapter"
             android:elevation="10dp"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_horizontal_margin"
             android:paddingEnd="@dimen/activity_horizontal_margin"
-            android:paddingBottom="@dimen/activity_horizontal_margin"
             app:cardCornerRadius="12dp">
 
 
@@ -45,16 +49,16 @@
         <TextView
             android:id="@+id/item_title"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="25dp"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="12dp"
             android:gravity="start|left"
             android:hint="Title"
             android:text="Star wars"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -93,10 +97,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
+            android:layout_marginBottom="15dp"
 
             android:text="StarWars "
             android:textColor="@color/white_bright"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
 
     </LinearLayout>

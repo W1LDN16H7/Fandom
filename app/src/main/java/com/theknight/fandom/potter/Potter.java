@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.theknight.fandom.R;
@@ -73,11 +73,11 @@ public class Potter extends AppCompatActivity {
         RecyclerView.LayoutManager manager = null;
 
         if (Util.getRotation(this).equals("landscape")) {
-            manager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
+            manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
         }
         if (Util.getRotation(this).equals("portrait")) {
-            manager = new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false);
+            manager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         }
 

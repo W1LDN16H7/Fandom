@@ -1,51 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_weight="100"
-    android:gravity="center"
     android:clickable="true"
+
     android:focusable="true"
+    android:gravity="center"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:id="@+id/cardvew1"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/ripple_imageview"
+        android:clickable="true"
         android:elevation="10dp"
 
-        app:cardCornerRadius="12dp">
 
-        <ImageView
-            android:id="@+id/avatar"
-            android:layout_width="140dp"
-            android:layout_height="180dp"
-            android:layout_gravity="center"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        app:cardBackgroundColor="@color/dev_black2"
+        app:cardCornerRadius="15dp"
+
+
+        >
+
+        <TextView
+            android:id="@+id/charector_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="@dimen/appintro_desc_padding"
+            android:gravity="center|center_horizontal"
+            android:text="Harry Potter"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/char_gender"
+            android:layout_width="238dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="40dp"
+            android:gravity="center|top"
+            android:text="25"
+            android:textAlignment="center"
+            android:textColor="@color/white_bright"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/char_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="60dp"
+            android:gravity="center|top"
+            android:textAlignment="center"
+            android:textColor="@color/white_bright"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/char_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="@dimen/appintro_desc_padding"
+            android:layout_marginTop="95dp"
+            android:layout_marginEnd="@dimen/appintro_desc_padding"
+            android:gravity="center|top"
+            android:textAlignment="center"
+
+            android:textColor="@color/white_bright"
+            android:textSize="11sp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardvew2"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+
             android:background="@drawable/ripple_imageview"
             android:clickable="true"
+            android:elevation="10dp"
             android:focusable="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/hp_logo" />
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+
+
+            android:paddingBottom="16dp"
+            app:cardCornerRadius="20dp">
+
+            <ImageView
+                android:id="@+id/avatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+
+                android:background="@drawable/ripple_imageview"
+                android:clickable="true"
+                android:focusable="true"
+
+                android:scaleType="fitCenter"
+                android:src="@drawable/hp_logo" />
+        </androidx.cardview.widget.CardView>
+
 
     </androidx.cardview.widget.CardView>
 
 
-    <TextView
-        android:id="@+id/charector_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Harry Potter"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="22sp" />
-
-    <TextView
-        android:id="@+id/char_gender"
-        android:layout_width="238dp"
-        android:layout_height="wrap_content"
-        android:text="25"
-        android:textAlignment="center"
-        android:textColor="@color/white_bright"
-        android:textSize="20sp" />
 </LinearLayout>

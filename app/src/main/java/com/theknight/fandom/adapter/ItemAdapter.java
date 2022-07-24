@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.button.MaterialButton;
 import com.theknight.fandom.R;
 import com.theknight.fandom.lib.ImageLoader;
+import com.theknight.fandom.marvel.MarvelActivity;
 import com.theknight.fandom.potter.Potter;
 import com.theknight.fandom.starwars.StarWarsActivity;
 
@@ -55,6 +57,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHandle
         loader.loadImage(context, holder.imageView, movieModel.getImages().get(0));
         holder.genre.setText(movieModel.getGenres().replace(",", "|"));
         holder.years.setText(movieModel.getYears_active());
+        holder.layout.setBackgroundResource(R.drawable.cardview_border);
         holder.mview.setOnClickListener(new View.OnClickListener() {
             private final String TAG = ItemAdapter.class.getName();
 
@@ -74,6 +77,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHandle
                     case 1:
                         Intent intent1 = new Intent(context, Potter.class);
                         context.startActivity(intent1);
+                        break;
+
+                    case 4:
+                        Intent intent2 = new Intent(context, MarvelActivity.class);
+                        context.startActivity(intent2);
                         break;
 
                     default:
@@ -108,6 +116,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHandle
         com.theknight.fandom.lib.ScrollTextView desc;
         MaterialButton info;
         CardView cardView;
+        LinearLayout layout;
         public final View mview;
 
 
@@ -121,7 +130,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHandle
             years = itemView.findViewById(R.id.years);
             desc = itemView.findViewById(R.id.desc);
             info = itemView.findViewById(R.id.info);
-            cardView = itemView.findViewById(R.id.card);
+            layout = itemView.findViewById(R.id.constraintLayout);
 //            itemView.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
