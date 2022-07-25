@@ -2,13 +2,13 @@ package com.theknight.fandom.marvel;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.animation.OvershootInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.theknight.fandom.R;
+import com.theknight.fandom.lib.CustomAnimationAdapter;
 import com.theknight.fandom.lib.Divider;
 import com.theknight.fandom.lib.RetrofitClient;
 import com.theknight.fandom.lib.Util;
@@ -86,12 +86,8 @@ public class MarvelActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(manager);
         AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(adapter);
 
-        alphaInAnimationAdapter.setInterpolator(new OvershootInterpolator());
-        alphaInAnimationAdapter.setFirstOnly(false);
-        alphaInAnimationAdapter.setDuration(1000);
 
-
-        recyclerView.setAdapter(new ScaleInAnimationAdapter(alphaInAnimationAdapter));
+        recyclerView.setAdapter(new ScaleInAnimationAdapter(CustomAnimationAdapter.setAnimationAdapter(alphaInAnimationAdapter)));
         recyclerView.addItemDecoration(Divider.getDivider(this));
         Log.d(TAG, "onCreate: Set final adapter");
     }

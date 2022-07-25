@@ -1,4 +1,4 @@
-package com.theknight.fandom.potter;
+package com.theknight.fandom.strangerthings;
 
 import android.content.Context;
 import android.util.Log;
@@ -15,18 +15,15 @@ import com.theknight.fandom.lib.ImageLoader;
 
 import java.util.List;
 
-public class RonAdapter extends RecyclerView.Adapter<CharacterHolder> {
-
-    private static final String TAG = "RonAdapter";
-    public List<CharacterModel> characters;
+public class StrangerAdapter extends RecyclerView.Adapter<CharacterHolder> {
+    private static final String TAG = "StrangerAdapter";
+    public List<StrangerModel> characters;
     Context context;
 
-    public RonAdapter(Context context, List<CharacterModel> characters) {
+    public StrangerAdapter(Context context, List<StrangerModel> characters) {
         this.characters = characters;
         this.context = context;
-        Log.d(TAG, "RonAdapter: characters called ");
     }
-
 
     @NonNull
     @Override
@@ -40,17 +37,23 @@ public class RonAdapter extends RecyclerView.Adapter<CharacterHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CharacterHolder holder, int position) {
-        CharacterModel character = characters.get(position);
+        StrangerModel character = characters.get(position);
 
         ImageLoader loader = new ImageLoader();
 
-        loader.loadImage(context, holder.imageView, character.getImageUrl(), 700, 600);
+        loader.loadImage(context, holder.imageView, character.getPhoto(), 700, 670);
         holder.age.setText(character.getGender());
+//        holder.title.setText(character.getName());
+//        holder.alt_name.setText(character.getBio().substring(0, 400));
+//        holder.alt_name.setBackgroundResource(R.drawable.text_border);
+
+
         holder.name.setText(character.getName());
-        holder.title.setText(character.getActor());
+        holder.title.setText(character.getPortrayedBy());
         holder.cardView1.setBackgroundResource(R.drawable.cardview_border);
 
-        Log.d(TAG, "onBindViewHolder: " + character.getImageUrl());
+
+        Log.d(TAG, "onBindViewHolder: " + character.getPhoto());
 
     }
 

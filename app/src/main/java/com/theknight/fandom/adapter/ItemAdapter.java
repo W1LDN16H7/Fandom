@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -22,6 +21,7 @@ import com.theknight.fandom.lib.ImageLoader;
 import com.theknight.fandom.marvel.MarvelActivity;
 import com.theknight.fandom.potter.Potter;
 import com.theknight.fandom.starwars.StarWarsActivity;
+import com.theknight.fandom.strangerthings.StrangerActivity;
 
 import java.util.List;
 
@@ -64,17 +64,21 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHandle
             @Override
             public void onClick(View v) {
                 Log.d("RecyclerView", "onClick：" + holder.getAdapterPosition());
-                Toast.makeText(v.getContext(), "Item clicked " + holder.getAdapterPosition(), Toast.LENGTH_LONG).show();
 
                 switch (holder.getAdapterPosition()) {
                     case 0:
+                        Intent intent3 = new Intent(context, StrangerActivity.class);
+                        context.startActivity(intent3);
+                        break;
+
+                    case 1:
                         Intent intent = new Intent(v.getContext(), StarWarsActivity.class);
                         intent.putExtra("url1", movieModel.getImages().get(0));
                         intent.putExtra("url2", movieModel.getImages().get(1));
 
                         v.getContext().startActivity(intent);
                         break;
-                    case 1:
+                    case 2:
                         Intent intent1 = new Intent(context, Potter.class);
                         context.startActivity(intent1);
                         break;

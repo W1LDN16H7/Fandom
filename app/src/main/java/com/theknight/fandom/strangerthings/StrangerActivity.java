@@ -1,4 +1,4 @@
-package com.theknight.fandom.potter;
+package com.theknight.fandom.strangerthings;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -21,37 +21,36 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Potter extends AppCompatActivity {
-    private static final String TAG = "Potter.java";
+public class StrangerActivity extends AppCompatActivity {
+    private static final String TAG = "Strangerthings";
     RecyclerView recyclerView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_potter);
+        setContentView(R.layout.activity_stranger);
 
-        recyclerView = findViewById(R.id.potter_rec);
+        recyclerView = findViewById(R.id.stranger_rec);
         RetrofitClient rt = new RetrofitClient();
 
-        HarryCall characterCall = rt.getRetrofitInstance("https://hp-api.herokuapp.com/").create(HarryCall.class);
+        StrangerCall characterCall = rt.getRetrofitInstance("https://stranger-things-api.herokuapp.com/").create(StrangerCall.class);
         Log.d(TAG, "onCreate: retrofit instance done" + characterCall.toString());
 
-        Call<List<CharacterModel>> call = characterCall.getHPData();
+        Call<List<StrangerModel>> call = characterCall.getStrangerData();
         Log.d(TAG, "onCreate: call harry " + call.request());
 
-        call.enqueue(new Callback<List<CharacterModel>>() {
+        call.enqueue(new Callback<List<StrangerModel>>() {
             @Override
-            public void onResponse(Call<List<CharacterModel>> call, Response<List<CharacterModel>> response) {
+            public void onResponse(Call<List<StrangerModel>> call, Response<List<StrangerModel>> response) {
                 System.out.println("Code :" + response.code());
                 if (response.code() != 200) {
                     System.out.println("Code : " + response.code());
 
 
                 }
-                List<CharacterModel> items = response.body();
+                List<StrangerModel> items = response.body();
                 if (items != null) {
-                    Log.d(TAG, "onResponse: Items are filled" + items.get(0).getName() + items.get(0).getGender() + items.get(0).getImageUrl());
+                    Log.d(TAG, "onResponse: Items are filled" + items.get(0).getName() + items.get(0).getGender() + items.get(0).getPhoto());
 
                     setAdapter(items);
                     Log.d(TAG, "onResponse: character added by url");
@@ -61,19 +60,17 @@ public class Potter extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<CharacterModel>> call, Throwable t) {
+            public void onFailure(Call<List<StrangerModel>> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
-
 
             }
         });
     }
 
-    public void setAdapter(List<CharacterModel> data) {
-
-        RonAdapter adapter = new RonAdapter(this, data);
-        Log.d(TAG, "onCreate: Adapter set");
+    public void setAdapter(List<StrangerModel> data) {
+        StrangerAdapter adapter = new StrangerAdapter(this, data);
         RecyclerView.LayoutManager manager = null;
+
 
         if (Util.getRotation(this).equals("landscape")) {
             manager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -83,17 +80,13 @@ public class Potter extends AppCompatActivity {
             manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
         }
+
         recyclerView.setLayoutManager(manager);
-
-
         AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(adapter);
 
 
         recyclerView.setAdapter(new ScaleInAnimationAdapter(CustomAnimationAdapter.setAnimationAdapter(alphaInAnimationAdapter)));
         recyclerView.addItemDecoration(Divider.getDivider(this));
-
         Log.d(TAG, "onCreate: Set final adapter");
-
-
     }
 }

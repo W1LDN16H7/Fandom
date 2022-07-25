@@ -4,18 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/imdb_black"
+    android:background="@color/dev_black"
+
 
     tools:context=".potter.Potter">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/potter_rec"
-        android:layout_width="391dp"
-        android:layout_height="827dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

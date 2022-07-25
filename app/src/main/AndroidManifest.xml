@@ -14,8 +14,11 @@
         android:theme="@style/Theme.Fandom"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".strangerthings.StrangerActivity"
+            android:exported="true" />
+        <activity
             android:name=".marvel.MarvelActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".potter.Potter"
             android:exported="true" />

@@ -20,12 +20,15 @@ import com.thecode.aestheticdialogs.OnDialogClickListener;
 import com.theknight.fandom.adapter.ItemAdapter;
 import com.theknight.fandom.adapter.MovieCall;
 import com.theknight.fandom.adapter.MovieModel;
+import com.theknight.fandom.lib.CustomAnimationAdapter;
+import com.theknight.fandom.lib.Divider;
 import com.theknight.fandom.lib.RetrofitClient;
 import com.theknight.fandom.lib.Util;
 
 import java.util.List;
 
-import jp.wasabeef.recyclerview.animators.FlipInBottomXAnimator;
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -129,8 +132,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         recyclerView.setLayoutManager(manager);
-        recyclerView.setItemAnimator(new FlipInBottomXAnimator());
-        recyclerView.setAdapter(adapter);
+        AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(adapter);
+
+
+        recyclerView.setAdapter(new ScaleInAnimationAdapter(CustomAnimationAdapter.setAnimationAdapter(alphaInAnimationAdapter)));
+        recyclerView.addItemDecoration(Divider.getDivider(this));
 //        Log.d(TAG, "onCreate: Set final adapter");
 
 
