@@ -15,6 +15,8 @@ import com.thecode.aestheticdialogs.DialogStyle;
 import com.thecode.aestheticdialogs.DialogType;
 import com.thecode.aestheticdialogs.OnDialogClickListener;
 import com.theknight.fandom.R;
+import com.theknight.fandom.lib.CustomAnimationAdapter;
+import com.theknight.fandom.lib.Divider;
 import com.theknight.fandom.lib.ImageLoader;
 import com.theknight.fandom.lib.NoConnectivityException;
 import com.theknight.fandom.lib.RetrofitClient;
@@ -22,7 +24,8 @@ import com.theknight.fandom.lib.Util;
 
 import java.util.List;
 
-import jp.wasabeef.recyclerview.animators.FlipInBottomXAnimator;
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -40,8 +43,7 @@ public class StarWarsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_star_wars);
         Log.d(TAG, "onCreate: opening starwars class ");
         recyclerView = findViewById(R.id.starwars_rec);
-        imageView = findViewById(R.id.header);
-        imageView2 = findViewById(R.id.header2);
+
         String url1 = getIntent().getStringExtra("url1");
         String url2 = getIntent().getStringExtra("url2");
         ImageLoader loader = new ImageLoader();
@@ -114,18 +116,21 @@ public class StarWarsActivity extends AppCompatActivity {
         RecyclerView.LayoutManager manager = null;
 
         if (Util.getRotation(this).equals("landscape")) {
-            manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+            manager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
         }
         if (Util.getRotation(this).equals("portrait")) {
-            manager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+            manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 
         }
 
 
         recyclerView.setLayoutManager(manager);
-        recyclerView.setItemAnimator(new FlipInBottomXAnimator());
-        recyclerView.setAdapter(adapter);
+        AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(adapter);
+
+
+        recyclerView.setAdapter(new ScaleInAnimationAdapter(CustomAnimationAdapter.setAnimationAdapter(alphaInAnimationAdapter)));
+        recyclerView.addItemDecoration(Divider.getDivider(this));
         Log.d(TAG, "onCreate: Set final adapter");
 
 

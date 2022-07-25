@@ -48,9 +48,10 @@ public class CastAdapter extends RecyclerView.Adapter<CharacterHolder> {
 
         ImageLoader loader = new ImageLoader();
 
-        loader.loadImage(context, holder.imageView, character.getUrl(), 190, 150);
+        loader.loadImage(context, holder.imageView, character.getUrl(), 730, 830);
         holder.age.setText(character.getGender());
         holder.name.setText(character.getName());
+        holder.cardView1.setBackgroundResource(R.drawable.cardview_border);
 
         Log.d(TAG, "onBindViewHolder: " + character.getUrl());
         holder.imageView.setOnClickListener(new View.OnClickListener() {

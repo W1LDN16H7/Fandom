@@ -19,6 +19,7 @@ import com.google.android.material.button.MaterialButton;
 import com.theknight.fandom.R;
 import com.theknight.fandom.lib.ImageLoader;
 import com.theknight.fandom.marvel.MarvelActivity;
+import com.theknight.fandom.pirates.PiratesActivity;
 import com.theknight.fandom.potter.Potter;
 import com.theknight.fandom.starwars.StarWarsActivity;
 import com.theknight.fandom.strangerthings.StrangerActivity;
@@ -81,6 +82,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHandle
                     case 2:
                         Intent intent1 = new Intent(context, Potter.class);
                         context.startActivity(intent1);
+                        break;
+                    case 3:
+                        Intent intent4 = new Intent(context, PiratesActivity.class);
+                        context.startActivity(intent4);
                         break;
 
                     case 4:
