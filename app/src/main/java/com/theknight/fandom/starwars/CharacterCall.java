@@ -20,7 +20,7 @@ import retrofit2.http.GET;
 public interface CharacterCall {
 //    @GET("/starwars-api/api/all.json")
 //    Call<List<CharacterModel>> getData();
-@GET("/W1LDN16H7/starwars-api/master/api/all.json")
+@GET("/api/v1/starwars")
 Call<List<CharacterModel>> getData();
 
 }

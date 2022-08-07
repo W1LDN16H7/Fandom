@@ -1,5 +1,7 @@
 package com.theknight.fandom.strangerthings;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.theknight.fandom.R;
 import com.theknight.fandom.lib.CustomAnimationAdapter;
 import com.theknight.fandom.lib.Divider;
+import com.theknight.fandom.lib.NetworkChangeListener;
 import com.theknight.fandom.lib.RetrofitClient;
 import com.theknight.fandom.lib.Util;
 
@@ -24,6 +27,7 @@ import retrofit2.Response;
 public class StrangerActivity extends AppCompatActivity {
     private static final String TAG = "Strangerthings";
     RecyclerView recyclerView;
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,7 @@ public class StrangerActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.stranger_rec);
         RetrofitClient rt = new RetrofitClient();
 
-        StrangerCall characterCall = rt.getRetrofitInstance("https://stranger-things-api.herokuapp.com/").create(StrangerCall.class);
+        StrangerCall characterCall = rt.getRetrofitInstance("https://omg-db.herokuapp.com/").create(StrangerCall.class);
         Log.d(TAG, "onCreate: retrofit instance done" + characterCall.toString());
 
         Call<List<StrangerModel>> call = characterCall.getStrangerData();
@@ -88,5 +92,18 @@ public class StrangerActivity extends AppCompatActivity {
         recyclerView.setAdapter(new ScaleInAnimationAdapter(CustomAnimationAdapter.setAnimationAdapter(alphaInAnimationAdapter)));
         recyclerView.addItemDecoration(Divider.getDivider(this));
         Log.d(TAG, "onCreate: Set final adapter");
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 }

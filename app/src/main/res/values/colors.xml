@@ -41,5 +41,10 @@
 
     <!--    <color name="yellow"> #FFE81F</color>-->
     <!--    <color name="yellow"> #FFE81F</color>-->
+    <!--    Internet Connection-->
+    <color name="internet_connection">#554911</color>
+    <color name="internet_connection_light">#EEE3AB</color>
+    <color name="internet_connection_dark_light">#665815</color>
+
 
 </resources>

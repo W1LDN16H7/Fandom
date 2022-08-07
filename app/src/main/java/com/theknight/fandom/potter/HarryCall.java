@@ -6,7 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface HarryCall {
-    @GET("/api/characters/")
+    @GET("/api/v1/hp")
     Call<List<CharacterModel>> getHPData();
 }
 

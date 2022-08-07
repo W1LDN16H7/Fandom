@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 
 public interface MarvelCall {
 
-    @GET("/W1LDN16H7/fandom-api/master/api/marvel.json")
+    @GET("/api/v1/marvel")
     Call<List<MarvelModel>> getMarvelData();
 }

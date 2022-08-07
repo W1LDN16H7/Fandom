@@ -1,5 +1,7 @@
 package com.theknight.fandom.pirates;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.theknight.fandom.R;
 import com.theknight.fandom.lib.CustomAnimationAdapter;
 import com.theknight.fandom.lib.Divider;
+import com.theknight.fandom.lib.NetworkChangeListener;
 import com.theknight.fandom.lib.RetrofitClient;
 import com.theknight.fandom.lib.Util;
 
@@ -25,6 +28,8 @@ public class PiratesActivity extends AppCompatActivity {
     private static final String TAG = "PiratesActivity.java";
     RecyclerView recyclerView;
 
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +38,7 @@ public class PiratesActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.pirates_rec);
         RetrofitClient rt = new RetrofitClient();
 
-        PirateCall characterCall = rt.getRetrofitInstance("https://raw.githubusercontent.com/").create(PirateCall.class);
+        PirateCall characterCall = rt.getRetrofitInstance("https://omg-db.herokuapp.com/").create(PirateCall.class);
         Log.d(TAG, "onCreate: retrofit instance done" + characterCall.toString());
 
         Call<List<PiratesModel>> call = characterCall.getPirateData();
@@ -86,5 +91,19 @@ public class PiratesActivity extends AppCompatActivity {
         recyclerView.setAdapter(new ScaleInAnimationAdapter(CustomAnimationAdapter.setAnimationAdapter(alphaInAnimationAdapter)));
         recyclerView.addItemDecoration(Divider.getDivider(this));
         Log.d(TAG, "onCreate: Set final adapter");
+    }
+
+
+    @Override
+    protected void onStart() {
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 }

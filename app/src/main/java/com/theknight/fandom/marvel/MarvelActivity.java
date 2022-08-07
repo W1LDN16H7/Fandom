@@ -1,5 +1,7 @@
 package com.theknight.fandom.marvel;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.theknight.fandom.R;
 import com.theknight.fandom.lib.CustomAnimationAdapter;
 import com.theknight.fandom.lib.Divider;
+import com.theknight.fandom.lib.NetworkChangeListener;
 import com.theknight.fandom.lib.RetrofitClient;
 import com.theknight.fandom.lib.Util;
 
@@ -22,8 +25,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MarvelActivity extends AppCompatActivity {
-    private static final String TAG = "Potter.java";
+    private static final String TAG = "MarvelActivity.java";
     RecyclerView recyclerView;
+
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +38,7 @@ public class MarvelActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.marvel_rec);
         RetrofitClient rt = new RetrofitClient();
 
-        MarvelCall characterCall = rt.getRetrofitInstance("https://raw.githubusercontent.com/").create(MarvelCall.class);
+        MarvelCall characterCall = rt.getRetrofitInstance("https://omg-db.herokuapp.com/").create(MarvelCall.class);
         Log.d(TAG, "onCreate: retrofit instance done" + characterCall.toString());
 
         Call<List<MarvelModel>> call = characterCall.getMarvelData();
@@ -90,5 +95,18 @@ public class MarvelActivity extends AppCompatActivity {
         recyclerView.setAdapter(new ScaleInAnimationAdapter(CustomAnimationAdapter.setAnimationAdapter(alphaInAnimationAdapter)));
         recyclerView.addItemDecoration(Divider.getDivider(this));
         Log.d(TAG, "onCreate: Set final adapter");
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 }

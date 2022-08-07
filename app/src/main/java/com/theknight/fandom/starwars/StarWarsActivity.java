@@ -1,6 +1,8 @@
 package com.theknight.fandom.starwars;
 
 import android.content.Context;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -18,6 +20,7 @@ import com.theknight.fandom.R;
 import com.theknight.fandom.lib.CustomAnimationAdapter;
 import com.theknight.fandom.lib.Divider;
 import com.theknight.fandom.lib.ImageLoader;
+import com.theknight.fandom.lib.NetworkChangeListener;
 import com.theknight.fandom.lib.NoConnectivityException;
 import com.theknight.fandom.lib.RetrofitClient;
 import com.theknight.fandom.lib.Util;
@@ -35,6 +38,7 @@ public class StarWarsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Context context;
     ImageView imageView, imageView2;
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
 
     @Override
@@ -54,7 +58,7 @@ public class StarWarsActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: Added characters");
         RetrofitClient rt = new RetrofitClient();
-        CharacterCall castcall = rt.getRetrofitInstance(" https://raw.githubusercontent.com/").create(CharacterCall.class);
+        CharacterCall castcall = rt.getRetrofitInstance("https://omg-db.herokuapp.com/").create(CharacterCall.class);
         Log.d(TAG, "onCreate: retrofit instance done");
         Log.d(TAG, "onCreate: castcall" + castcall.toString());
         Call<List<CharacterModel>> call = castcall.getData();
@@ -134,5 +138,18 @@ public class StarWarsActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Set final adapter");
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 }

@@ -1,28 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dev_black"
+    android:background="@color/dev_black2"
+    android:orientation="vertical"
 
     tools:context=".MainActivity">
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/filledTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/appintro_desc_padding"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="@dimen/appintro_desc_padding"
+        android:textColorHint="#F6F6F6"
+        android:visibility="visible"
+        app:boxBackgroundMode="outline"
+        app:helperText="Search for a character"
+        app:helperTextTextColor="@color/white"
+        app:hintTextColor="@color/dev_white"
+
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_item"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/searchbar_bg"
+            android:drawableEnd="@drawable/search"
+            android:hint="Search"
+            android:imeActionLabel="Search"
+
+            android:textColor="@color/white"
+            android:textColorHint="#F6F6F6"
+
+            android:visibility="visible"
+            app:hintTextColor="@color/dev_white" />
+
+        <!--this is the actual edit text which takes the input-->
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
 
         android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:focusable="true" />
+
+
+</LinearLayout>
 

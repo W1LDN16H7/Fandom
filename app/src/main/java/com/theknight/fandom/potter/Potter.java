@@ -1,5 +1,7 @@
 package com.theknight.fandom.potter;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.theknight.fandom.R;
 import com.theknight.fandom.lib.CustomAnimationAdapter;
 import com.theknight.fandom.lib.Divider;
+import com.theknight.fandom.lib.NetworkChangeListener;
 import com.theknight.fandom.lib.RetrofitClient;
 import com.theknight.fandom.lib.Util;
 
@@ -24,6 +27,7 @@ import retrofit2.Response;
 public class Potter extends AppCompatActivity {
     private static final String TAG = "Potter.java";
     RecyclerView recyclerView;
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener();
 
 
     @Override
@@ -34,7 +38,7 @@ public class Potter extends AppCompatActivity {
         recyclerView = findViewById(R.id.potter_rec);
         RetrofitClient rt = new RetrofitClient();
 
-        HarryCall characterCall = rt.getRetrofitInstance("https://hp-api.herokuapp.com/").create(HarryCall.class);
+        HarryCall characterCall = rt.getRetrofitInstance("https://omg-db.herokuapp.com/").create(HarryCall.class);
         Log.d(TAG, "onCreate: retrofit instance done" + characterCall.toString());
 
         Call<List<CharacterModel>> call = characterCall.getHPData();
@@ -95,5 +99,18 @@ public class Potter extends AppCompatActivity {
         Log.d(TAG, "onCreate: Set final adapter");
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, intentFilter);
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 }

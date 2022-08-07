@@ -6,7 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface MovieCall {
-    @GET("/W1LDN16H7/fandom-api/master/api/shows.json")
+    @GET("/api/v1/all")
     Call<List<MovieModel>> getMovie();
 
 }
